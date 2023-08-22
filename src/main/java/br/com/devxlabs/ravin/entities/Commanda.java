@@ -3,8 +3,10 @@ package br.com.devxlabs.ravin.entities;
 import java.util.List;
 
 import br.com.devxlabs.ravin.enums.CommandaStatus;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
-public class Commanda {
+public class  Commanda {
 	private int id;
 	private Table table;
 	private Customer customer;
