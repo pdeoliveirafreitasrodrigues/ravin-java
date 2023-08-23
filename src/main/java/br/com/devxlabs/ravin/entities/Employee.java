@@ -6,27 +6,37 @@ import br.com.devxlabs.ravin.enums.EmployeeAviability;
 import br.com.devxlabs.ravin.enums.MeritalStatus;
 import br.com.devxlabs.ravin.enums.Responsibility;
 import br.com.devxlabs.ravin.enums.Schooling;
+import jakarta.persistence.*;
 
+@Entity
 public class Employee extends Person {
 
-	private int employeeId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	@Column(unique = true, nullable = false)
 	private String rg;
+	@Enumerated(value = EnumType.STRING)
 	private MeritalStatus meritalStatus;
+	@Enumerated(value = EnumType.STRING)
 	private Schooling schooling;
+	@Enumerated(value = EnumType.STRING)
 	private Responsibility responsability;
+	@Column(unique = true)
 	private int pis;
 	private Date admissionDate;
 	private Date resignationDate;
+	@Enumerated(value = EnumType.STRING)
 	private EmployeeAviability employeeAviability;
 
 	public Employee() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int employeeId, String rg, MeritalStatus meritalStatus, Schooling schooling, Responsibility responsability,
+	public Employee(int id, String rg, MeritalStatus meritalStatus, Schooling schooling, Responsibility responsability,
 			Date admissionDate, Date resignationDate, EmployeeAviability employeeAviability, int pis) {
 		super();
-		this.employeeId = employeeId;
+		this.employeeAviability = employeeAviability;
 		this.rg = rg;
 		this.meritalStatus = meritalStatus;
 		this.schooling = schooling;
@@ -37,12 +47,12 @@ public class Employee extends Person {
 		this.pis = pis;
 	}
 
-	public int getEmployeeId() {
-		return employeeId;
+	public int getId() {
+		return id;
 	}
 
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getRg() {

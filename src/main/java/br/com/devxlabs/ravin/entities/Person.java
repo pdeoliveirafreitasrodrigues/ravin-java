@@ -2,31 +2,35 @@ package br.com.devxlabs.ravin.entities;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public class Person {
+@Entity
+public class Person extends Address{
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(nullable = false)
 	private String name;
-	private String address;
+
+	@Embedded
+	private Address address;
 	private String phone;
+	@Column(nullable = false, unique = true)
 	private String cpf;
 	private Date dateOfBirth;
 	private String observations;
+	@Column(nullable = false)
 	private boolean hasActive;
 
 	public Person() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Person(int id, String name, String address, String phone, String cpf, Date dateOfBirth, String observations,
+	public Person(int id, String name, Address address, String phone, String cpf, Date dateOfBirth, String observations,
 			boolean hasActive) {
 		super();
 		this.id = id;
@@ -55,11 +59,11 @@ public class Person {
 		this.name = name;
 	}
 
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 
