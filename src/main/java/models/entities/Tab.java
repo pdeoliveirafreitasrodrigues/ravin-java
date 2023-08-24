@@ -1,4 +1,4 @@
-package br.com.devxlabs.ravin.entities;
+package models.entities;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class Tab {
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "table_id")
-	private Table table;
+	private models.entities.Table table;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
@@ -30,7 +30,7 @@ public class Tab {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tab(int id, Table table, Customer customer, List<OrderDetail> orderDetails, String code,
+	public Tab(int id, models.entities.Table table, Customer customer, List<OrderDetail> orderDetails, String code,
 			   String comments, TabStatus tabStatus) {
 		super();
 		this.id = id;
@@ -50,7 +50,7 @@ public class Tab {
 		this.id = id;
 	}
 
-	public Table getTable() {
+	public models.entities.Table getTable() {
 		return table;
 	}
 

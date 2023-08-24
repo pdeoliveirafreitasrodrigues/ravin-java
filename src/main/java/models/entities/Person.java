@@ -1,14 +1,12 @@
-package br.com.devxlabs.ravin.entities;
+package models.entities;
 
 import java.util.Date;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
-public class Person extends Address{
+public class Person{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +18,7 @@ public class Person extends Address{
 	private Address address;
 	private String phone;
 	@Column(nullable = false, unique = true)
+	@CPF
 	private String cpf;
 	private Date dateOfBirth;
 	private String observations;

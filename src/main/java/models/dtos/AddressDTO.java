@@ -1,25 +1,23 @@
-package br.com.devxlabs.ravin.entities;
+package models.dtos;
 
-import jakarta.persistence.Embeddable;
+import java.io.Serializable;
 
-@Embeddable
-public class Address {
+public class AddressDTO implements Serializable  {
+
     private String state;
     private String city;
     private String street;
     private String zipCode;
 
-    public Address() {
-
+    public AddressDTO() {
     }
 
-    public Address(String state, String city, String street, String zipCode) {
+    public AddressDTO(String state, String city, String street, String zipCode) {
         this.state = state;
         this.city = city;
         this.street = street;
         this.zipCode = zipCode;
     }
-
 
     public String getState() {
         return state;

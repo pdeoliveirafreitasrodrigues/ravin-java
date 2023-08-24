@@ -1,4 +1,4 @@
-package br.com.devxlabs.ravin.entities;
+package models.entities;
 
 import java.util.Date;
 
@@ -24,6 +24,7 @@ public class Employee extends Person {
 	private Responsibility responsability;
 	@Column(unique = true)
 	private int pis;
+
 	private Date admissionDate;
 	private Date resignationDate;
 	@Enumerated(value = EnumType.STRING)
