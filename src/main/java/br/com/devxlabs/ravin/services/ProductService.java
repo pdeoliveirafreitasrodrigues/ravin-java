@@ -12,7 +12,7 @@ public class ProductService {
 
     public List<ProductDTO> listAll(){
 
-        return List.of(new ProductDTO(), new ProductDTO());
+        return List.of(new ProductDTO());
     }
 
     public ProductDTO findById(long id){
@@ -22,6 +22,16 @@ public class ProductService {
 
     public void deleteById(Long id){
         System.out.println("Deletou o produto " + id);
+    }
+
+    public ProductDTO createProduct(ProductDTO productDTO){
+        productDTO = new ProductDTO();
+        return productDTO;
+    }
+
+    public List<ProductDTO> search (String name, String productType, double minSalePrice, double maxSalePrice){
+        System.out.println("Buscando o produto com Filtros: ");
+        return List.of(new ProductDTO(), new ProductDTO(), new ProductDTO());
     }
 
 }
