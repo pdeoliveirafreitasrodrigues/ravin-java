@@ -1,16 +1,12 @@
 package models.dtos;
 
 import br.com.devxlabs.ravin.enums.ProductType;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.Builder;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
 
 public class ProductDTO implements Serializable {
 
@@ -22,7 +18,7 @@ public class ProductDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private int id;
+    private Long id;
 
     @NotBlank(message = "O campo nome não pode estar em branco")
     @NotEmpty(message = "O campo nome não pode ser vazio")
@@ -36,27 +32,23 @@ public class ProductDTO implements Serializable {
     @NotEmpty(message = "O campo código não pode ser vazio")
     private String code;
 
-    @DecimalMin(value = MIN_COST_PRICE, message = "O preço de custo não pode ser negativo")
-    private double costPrice;
+    private @DecimalMin(value = MIN_COST_PRICE, message = "O preço de custo não pode ser negativo") Double costPrice;
 
-    @DecimalMin(value = MIN_SALE_PRICE, message = "O preço de venda não pode ser negativo")
-    private double salePrice;
+    private @DecimalMin(value = MIN_SALE_PRICE, message = "O preço de venda não pode ser negativo") Double salePrice;
 
     @NotBlank(message = "O campo tempo de preparação não pode estar em branco")
     @NotEmpty(message = "O campo tempo de preparação não pode ser vazio")
     private String preparationTime;
 
-    @NotBlank(message = "O campo tipo de produto não pode estar em branco")
-    @NotEmpty(message = "O campo tipo de produto não pode ser vazio")
     private ProductType productType;
 
-    private boolean hasActive = true;
+    private Boolean hasActive = true;
 
 
     public ProductDTO() {
     }
 
-    public ProductDTO(int id, String name, String description, String code, double costPrice, double salePrice, String preparationTime, ProductType productType, boolean hasActive) {
+    public ProductDTO(Long id, String name, String description, String code, double costPrice, double salePrice, String preparationTime, ProductType productType, boolean hasActive) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -68,11 +60,11 @@ public class ProductDTO implements Serializable {
         this.hasActive = hasActive;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -100,19 +92,19 @@ public class ProductDTO implements Serializable {
         this.code = code;
     }
 
-    public double getCostPrice() {
+    public @DecimalMin(value = MIN_COST_PRICE, message = "O preço de custo não pode ser negativo") Double getCostPrice() {
         return costPrice;
     }
 
-    public void setCostPrice(double costPrice) {
+    public void setCostPrice(@DecimalMin(value = MIN_COST_PRICE, message = "O preço de custo não pode ser negativo") Double costPrice) {
         this.costPrice = costPrice;
     }
 
-    public double getSalePrice() {
+    public @DecimalMin(value = MIN_SALE_PRICE, message = "O preço de venda não pode ser negativo") Double getSalePrice() {
         return salePrice;
     }
 
-    public void setSalePrice(double salePrice) {
+    public void setSalePrice(@DecimalMin(value = MIN_SALE_PRICE, message = "O preço de venda não pode ser negativo") Double salePrice) {
         this.salePrice = salePrice;
     }
 
@@ -132,11 +124,11 @@ public class ProductDTO implements Serializable {
         this.productType = productType;
     }
 
-    public boolean isHasActive() {
+    public Boolean isHasActive() {
         return hasActive;
     }
 
-    public void setHasActive(boolean hasActive) {
+    public void setHasActive(Boolean hasActive) {
         this.hasActive = hasActive;
     }
 }

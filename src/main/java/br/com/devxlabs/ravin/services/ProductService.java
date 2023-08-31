@@ -1,14 +1,21 @@
 package br.com.devxlabs.ravin.services;
 
+import br.com.devxlabs.ravin.repositories.ProductRepository;
 import models.dtos.ProductDTO;
+import models.entities.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.sql.SQLOutput;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
+
+    @Autowired
+    ProductRepository productRepository;
 
     public List<ProductDTO> listAll(){
 
@@ -16,17 +23,13 @@ public class ProductService {
     }
 
     public ProductDTO findById(long id){
-        System.out.print(id);
-        return new ProductDTO();
+        Optional<Product> optional = productRepository.findById(id);
+        productRepository.count()
+        return
     }
 
     public void deleteById(Long id){
         System.out.println("Deletou o produto " + id);
-    }
-
-    public ProductDTO createProduct(ProductDTO productDTO){
-        productDTO = new ProductDTO();
-        return productDTO;
     }
 
     public List<ProductDTO> search (String name, String productType, double minSalePrice, double maxSalePrice){
