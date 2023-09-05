@@ -1,4 +1,4 @@
-package models.entities;
+package br.com.devxlabs.ravin.models.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

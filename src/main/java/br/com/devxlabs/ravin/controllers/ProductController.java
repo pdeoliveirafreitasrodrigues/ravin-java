@@ -2,7 +2,7 @@ package br.com.devxlabs.ravin.controllers;
 
 import br.com.devxlabs.ravin.services.ProductService;
 import jakarta.validation.Valid;
-import models.dtos.ProductDTO;
+import br.com.devxlabs.ravin.models.dtos.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,11 +31,6 @@ public class ProductController {
         return ResponseEntity.ok(productDTO);
     }
 
-    /*@GetMapping(value = "/{id}")
-    public ProductDTO findById(@PathVariable Long id){
-        return service.findById(id);
-    }*/
-
     @DeleteMapping(value = "/{id}")
     public void deleteById(@PathVariable Long id){
         service.deleteById(id);
@@ -51,7 +46,8 @@ public class ProductController {
                                    @RequestParam(value = "itensPerPage", defaultValue = "10", required = false) Integer itensPerPage,
                                    @RequestParam(value = "direction", defaultValue = "ASC", required = false) String direction){
 
-        return  service.search(name, productType, minsalePrice, maxSalePrice);
+        return  service.search(name, productType, minsalePrice, maxSalePrice,
+                page, orderBy, itensPerPage, direction);
     }
 
     @PostMapping

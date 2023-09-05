@@ -1,12 +1,9 @@
-package models.dtos;
+package br.com.devxlabs.ravin.models.dtos;
 
 import br.com.devxlabs.ravin.enums.TabStatus;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import models.entities.Customer;
-import models.entities.OrderDetail;
-import models.entities.Table;
+import br.com.devxlabs.ravin.models.entities.Table;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -17,7 +14,7 @@ public class TabDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     private int id;
-    private models.entities.Table table;
+    private Table table;
     private CustomerDTO customerDTO;
     private List<OrderDetailDTO> orderDetailsDTO;
 

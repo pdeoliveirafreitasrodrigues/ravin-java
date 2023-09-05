@@ -1,4 +1,4 @@
-package models.dtos;
+package br.com.devxlabs.ravin.models.dtos;
 
 import br.com.devxlabs.ravin.enums.ProductType;
 import jakarta.validation.constraints.DecimalMin;

@@ -1,4 +1,4 @@
-package models.dtos;
+package br.com.devxlabs.ravin.models.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;

@@ -1,11 +1,8 @@
-package models.dtos;
+package br.com.devxlabs.ravin.models.dtos;
 
 import br.com.devxlabs.ravin.enums.TableStatus;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import models.entities.Employee;
-import models.entities.Tab;
 
 import java.io.Serial;
 import java.io.Serializable;

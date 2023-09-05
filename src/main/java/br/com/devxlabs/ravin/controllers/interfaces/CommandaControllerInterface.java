@@ -1,7 +1,7 @@
 package br.com.devxlabs.ravin.controllers.interfaces;
 
-import models.entities.Tab;
-import models.entities.OrderDetail;
+import br.com.devxlabs.ravin.models.entities.Tab;
+import br.com.devxlabs.ravin.models.entities.OrderDetail;
 import br.com.devxlabs.ravin.enums.TabStatus;
 
 public interface CommandaControllerInterface extends ControllerInterface<Tab> {

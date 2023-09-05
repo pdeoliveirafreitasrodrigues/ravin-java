@@ -1,4 +1,4 @@
-package models.entities;
+package br.com.devxlabs.ravin.models.entities;
 
 import java.util.List;
 

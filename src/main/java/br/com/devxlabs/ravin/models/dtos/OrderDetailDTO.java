@@ -1,4 +1,4 @@
-package models.dtos;
+package br.com.devxlabs.ravin.models.dtos;
 
 import br.com.devxlabs.ravin.enums.PreparationOrderStatus;
 import jakarta.validation.constraints.NotBlank;
